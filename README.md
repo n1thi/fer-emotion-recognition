@@ -1,7 +1,7 @@
 # Facial Emotion Recognition  
 
 This project detects human emotions from facial images using deep learning (FER2013 dataset).  
-It includes a Jupyter notebook for training and a Flask web app for running predictions.  
+It includes a Jupyter notebook for training, a Flask web app for running predictions locally, and a live Gradio demo hosted on Hugging Face Spaces.  
 
 ---
 
@@ -10,6 +10,13 @@ It includes a Jupyter notebook for training and a Flask web app for running pred
 - `fer_emotion_recognition.ipynb` – Training and evaluation notebook  
 - `FER_report.pdf` – Project report  
 - `requirements.txt` – Dependencies  
+
+---
+
+## Live Demo
+Try it directly in your browser with **Hugging Face Spaces**:  
+
+[![Open in Spaces](https://huggingface.co/datasets/huggingface/badges/resolve/main/open-in-hf-spaces-lg.svg)](https://huggingface.co/spaces/n1thi/fer-emotion-recognition)
 
 ---
 
