@@ -7,3 +7,4 @@ pillow>=10.0
 matplotlib>=3.8
 scikit-learn>=1.4
 gunicorn>=21.2
+gradio>=4.0
