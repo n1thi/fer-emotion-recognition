@@ -25,3 +25,18 @@ It includes a Jupyter notebook for training and a Flask web app for running pred
     cd website
     python app.py
     ```
+
+## Results 
+
+- **Dataset:** FER2013 (48×48 faces, 7 classes: angry, disgust, fear, happy, sad, surprise, neutral)
+
+- **Best model:** VGG-13 (transfer learning + augmentation)  
+  - **Top-1 Test Accuracy:** ~**62.8%**
+
+- **Other models tried:** ResNet variant(s)  
+  - **Best Validation Accuracy:** ~**47.5%**
+
+- **Notes:**
+  - Standard augmentations (flip/shift/zoom) and regularization improved generalization.  
+  - Smaller/rare classes (e.g., **disgust**) are harder due to class imbalance—typical for FER2013.  
+  - Optimizer state is not needed at inference; only the trained weights (`fer_vgg.h5`) are used by the Flask app.  
