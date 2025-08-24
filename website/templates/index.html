@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Facial Emotion Recognition</title>
+    <link rel="stylesheet" href="/static/styles.css"> </head>
+<body>
+    <body>
+    <h1>Facial Emotion Recognition</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*">
+        <button type="submit">Upload</button>
+    </form>
+
+    <div id="image-container">
+        <img id="uploaded-image" src="" alt="Uploaded Image">
+        <p id="result"></p>
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+        const uploadedImage = document.getElementById('uploaded-image');
+        const result = document.getElementById('result');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const response = await fetch('/', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.error) {
+                result.textContent = data.error;
+            } else {
+                // Set the src of the image using the URL provided by Flask
+                uploadedImage.src = `/uploads/${data.filename}`;
+                result.textContent = `Predicted Emotion: ${data.emotion}`;
+            }
+        });
+    </script>
+</body>
+</html>
